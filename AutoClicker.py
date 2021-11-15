@@ -19,4 +19,15 @@ class WhatsApp:
     #navigate to green dots for new messages
     def nav_green_dot(self):
         try:
-            position = 
+            position = pt.locateOnScreen('green_dot.png', confidence = 0.7)
+            pt.moveTo(position[0:2], duration=self.speed)
+            pt.moveRel(-100, 0, duration=self.speed)
+            pt.doubleClick(interval=self.click_speed)
+        except Exception as e:
+            print('Exception (nav_green_dot): ', e)
+
+
+
+wa_bot = WhatsApp(speed = 0.5, click_speed= 0.4)   
+sleep(2)
+wa_bot.nav_green_dot()

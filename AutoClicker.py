@@ -77,12 +77,25 @@ class WhatsApp:
         except Exception as e:
             print('Exception (send_message): ', e)
 
+
+       #close respond box
+        def nav_x(self):
+            try:
+                position = pt.locateOnScreen('x.png', confidence = 0.7)
+                pt.moveTo(position[0:2], duration=self.speed)
+                pt.moveRel(20, 20, duration=self.speed)
+                mouse.click(Button.left, 1)
+            
+            except Exception as e:
+                print('Exception (nav_x): ', e) 
+
 wa_bot = WhatsApp(speed = 0.5, click_speed= 0.4)   
 sleep(2)
 
 
 while True:
     wa_bot.nav_green_dot()
+    wa_bot.nav_x()
     wa_bot.nav_message()
     wa_bot.get_message()
     wa_bot.nav_input_box()

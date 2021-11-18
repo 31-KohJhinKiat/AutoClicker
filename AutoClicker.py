@@ -11,7 +11,7 @@ mouse = Controller()
 class WhatsApp:
 
     # defines starting values
-    def _init_(self, speed= .5, click_speed= .3):
+    def __init__(self, speed= .5, click_speed= .3):
         self.speed = speed
         self.click_speed =click_speed
         self.message = ''

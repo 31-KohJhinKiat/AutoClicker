@@ -9,7 +9,7 @@ mouse = Controller()
 class gameClicker:
 
     # defines starting values
-    def __init__(self, speed= .5, click_speed= .3):
+    def __init__(self, speed= 0.3, click_speed= 0.2):
         self.speed = speed
         self.click_speed =click_speed
 
@@ -17,7 +17,7 @@ class gameClicker:
         try:
             position = pt.locateOnScreen('avocado.png', confidence = 0.6)
             pt.moveTo(position[0:2], duration=self.speed)
-            pt.moveRel(-50, 50, duration=self.speed)
+            pt.moveRel(20, 20, duration=self.speed)
             pt.doubleClick(interval=self.click_speed)
         except Exception as e:
             print('Searching for another ingredient ')
@@ -26,7 +26,7 @@ class gameClicker:
         try:
             position = pt.locateOnScreen('lime.png', confidence = 0.6)
             pt.moveTo(position[0:2], duration=self.speed)
-            pt.moveRel(-50, 50, duration=self.speed)
+            pt.moveRel(20, 20, duration=self.speed)
             pt.doubleClick(interval=self.click_speed)
         except Exception as e:
             print('Searching for another ingredient ')
@@ -35,7 +35,7 @@ class gameClicker:
         try:
             position = pt.locateOnScreen('chilli.png', confidence = 0.6)
             pt.moveTo(position[0:2], duration=self.speed)
-            pt.moveRel(-50, 50, duration=self.speed)
+            pt.moveRel(20, 20, duration=self.speed)
             pt.doubleClick(interval=self.click_speed)
         except Exception as e:
             print('Searching for another ingredient ')
@@ -44,7 +44,7 @@ class gameClicker:
         try:
             position = pt.locateOnScreen('tomato.png', confidence = 0.6)
             pt.moveTo(position[0:2], duration=self.speed)
-            pt.moveRel(-50, 50, duration=self.speed)
+            pt.moveRel(20, 20, duration=self.speed)
             pt.doubleClick(interval=self.click_speed)
         except Exception as e:
             print('Searching for another ingredient ')
@@ -53,7 +53,16 @@ class gameClicker:
         try:
             position = pt.locateOnScreen('onion.png', confidence = 0.6)
             pt.moveTo(position[0:2], duration=self.speed)
-            pt.moveRel(-50, 50, duration=self.speed)
+            pt.moveRel(20, 20, duration=self.speed)
+            pt.doubleClick(interval=self.click_speed)
+        except Exception as e:
+            print('Searching for another ingredient ')
+
+    def nav_nut(self):
+        try:
+            position = pt.locateOnScreen('nut.png', confidence = 0.6)
+            pt.moveTo(position[0:2], duration=self.speed)
+            pt.moveRel(20, 20, duration=self.speed)
             pt.doubleClick(interval=self.click_speed)
         except Exception as e:
             print('Searching for another ingredient ')

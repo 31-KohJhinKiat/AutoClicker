@@ -2,7 +2,7 @@ import pyautogui as pt
 import pyperclip as pc
 from pynput.mouse import Controller, Button
 from time import sleep
-from  whatsapp_response import response
+from whatsapp_response import response
 
 #mouse click in pc
 mouse = Controller()
@@ -11,7 +11,7 @@ mouse = Controller()
 class WhatsApp:
 
     # defines starting values
-    def _init_(self, speed= 0.5, click_speed= 0.5):
+    def _init_(self, speed= .5, click_speed= .3):
         self.speed = speed
         self.click_speed =click_speed
         self.message = ''
@@ -78,20 +78,18 @@ class WhatsApp:
             print('Exception (send_message): ', e)
 
 
-       #close respond box
-        def nav_x(self):
-            try:
-                position = pt.locateOnScreen('x.png', confidence = 0.7)
-                pt.moveTo(position[0:2], duration=self.speed)
-                pt.moveRel(20, 20, duration=self.speed)
-                mouse.click(Button.left, 1)
+    #close respond box
+    def nav_x(self):
+        try:
+            position = pt.locateOnScreen('x.png', confidence = 0.7)
+            pt.moveTo(position[0:2], duration=self.speed)
+            pt.moveRel(20, 20, duration=self.speed)
+            mouse.click(Button.left, 1)
             
-            except Exception as e:
-                print('Exception (nav_x): ', e) 
+        except Exception as e:
+            print('Exception (nav_x): ', e) 
 
-wa_bot = WhatsApp(speed = 0.5, click_speed= 0.4)   
-sleep(2)
-
+wa_bot = WhatsApp(speed= 0.5, click_speed= 0.4)
 
 while True:
     wa_bot.nav_green_dot()
